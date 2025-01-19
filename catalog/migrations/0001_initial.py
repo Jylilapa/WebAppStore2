@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ("description", models.TextField(verbose_name="Описание")),
                 (
                     "image",
-                    models.ImageField(blank=True, null=True, upload_to="static/images", verbose_name="Изображение"),
+                    models.ImageField(blank=True, null=True, upload_to="fhoto/images", verbose_name="Изображение"),
                 ),
                 ("price", models.IntegerField(verbose_name="Цена")),
                 ("created_at", models.DateField(auto_now_add=True, verbose_name="Дата создания")),
