@@ -12,6 +12,8 @@
                         <p class="card-text">Описание: {{ object.description }}</p>
                         <p class="card-text">Цена: {{ object.price }} руб.</p>
                         <p class="card-text">Дата внесения товара в каталог: {{ object.created_at | date:"d M Y"  }} </p>
+                        <a class="btn btn-primary" href="{% url 'catalog:product_update' product.pk %}" role="button">Редактировать</a>
+                        <a class="btn btn-primary" href="{% url 'catalog:product_delete' product.pk %}" role="button">Удалить</a>
                       </div>
                     </div>
                   </div>
