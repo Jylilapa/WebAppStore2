@@ -1,0 +1,21 @@
+{% extends "catalog/base.html" %}
+{% block content %}
+<div class="row mt-5 mx-auto p-2">
+        <div class="col-1"></div>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for record in object_list %}
+                  <div class="col">
+                    <div class="card">
+                      <img src="{{ record.preview.url }}" class="card-img-top" >
+                      <div class="card-body">
+                        <h5 class="card-title">Заголовок: {{ record.title }}</h5>
+                        <p class="card-text">Содержимое: {{ record.description | truncatechars:100 }}</p>
+                        <a class="btn btn-primary" href="{% url 'blog:record_detail' record.pk %}" role="button">Посмотреть</a>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+            </div>
+        <div class="col-1"></div>
+</div>
+{% endblock %}

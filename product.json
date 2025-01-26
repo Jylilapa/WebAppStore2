@@ -1,0 +1,41 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+        "name": "Мультиварка",
+        "description": "Умная мультиварка",
+        "image": "",
+        "category": 3,
+        "price": 5000,
+        "created_at": "2025-01-12",
+        "updated_at": "2025-01-12"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+        "name": "Ноутбук",
+        "description": "Игровой ноутбук",
+        "image": "",
+        "category": 4,
+        "price": 75000,
+        "created_at": "2025-01-12",
+        "updated_at": "2025-01-12"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+        "name": "Стационарный компьютер",
+        "description": "Мощный игровой персональный компьютер",
+        "image": "",
+        "category": 4,
+        "price": 95000,
+        "created_at": "2025-01-12",
+        "updated_at": "2025-01-12"
+    }
+}
+]
