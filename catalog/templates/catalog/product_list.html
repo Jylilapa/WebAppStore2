@@ -6,6 +6,7 @@
                 {% for product in object_list %}
                   <div class="col">
                     <div class="card">
+                      <img src="{{ product.image.url }}" class="card-img-top" >
                       <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">Категория: {{ product.category }}</p>
