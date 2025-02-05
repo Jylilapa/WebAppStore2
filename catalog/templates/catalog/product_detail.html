@@ -12,8 +12,14 @@
                         <p class="card-text">Описание: {{ object.description }}</p>
                         <p class="card-text">Цена: {{ object.price }} руб.</p>
                         <p class="card-text">Дата внесения товара в каталог: {{ object.created_at | date:"d M Y"  }} </p>
+                        {% if perms.catalog.can_unpublish_product %}
+                        <a class="btn btn-primary" href="{% url 'catalog:publish_product' product.pk %}" role="button">Опубликовать</a>
+                        <a class="btn btn-primary" href="{% url 'catalog:product_delete' product.pk %}" role="button">Удалить</a>
+                        {% endif %}
+                        {% if user == product.owner %}
                         <a class="btn btn-primary" href="{% url 'catalog:product_update' product.pk %}" role="button">Редактировать</a>
                         <a class="btn btn-primary" href="{% url 'catalog:product_delete' product.pk %}" role="button">Удалить</a>
+                        {% endif %}
                       </div>
                     </div>
                   </div>

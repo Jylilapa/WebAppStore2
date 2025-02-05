@@ -37,3 +37,16 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
         if price < 0:
             raise ValidationError("Цена не может быть отрицательной")
         return price
+
+
+class ProductModeratorForm(StyleFormMixin, forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ProductModeratorForm, self).__init__(*args, **kwargs)
+
+        self.fields['publish_product'].widget.attrs.update({
+            'class': 'form-check',
+        })
+
+    class Meta:
+        model = Product
+        fields = ["publish_product", "name", "owner"]
