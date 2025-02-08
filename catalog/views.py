@@ -4,11 +4,27 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView, DeleteView
 
 from catalog.forms import ProductForm, ProductModeratorForm
-from catalog.models import Product
+from catalog.models import Product, Category
+from catalog.services import get_product_from_cache, ProductsListCategory
 
 
 class HomeListView(ListView):
     model = Product
+
+    def get_queryset(self):
+        return get_product_from_cache()
+
+
+class CategoryListView(ListView):
+    model = Product
+    template_name = "catalog/category_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category = Category.object.name
+        context["products"] = ProductsListCategory.get_products_category(category)
+        return context
+
 
 
 class ContactsTemplateView(LoginRequiredMixin, TemplateView):
